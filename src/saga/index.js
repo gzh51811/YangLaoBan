@@ -1,6 +1,6 @@
 import { call, put, takeEvery, takeLatest,select,all } from 'redux-saga/effects';
 
-import {getData} from '../service';
+// import {getData} from '../service';
 
 let delay = (time)=>new Promise(resolve=>setTimeout(resolve,time));
 
