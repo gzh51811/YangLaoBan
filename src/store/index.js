@@ -8,4 +8,6 @@ const SagaMiddleware = createSagaMiddleware()
 let store = createStore(rootReducer,applyMiddleware(SagaMiddleware));
 SagaMiddleware.run(saga)
 
+
+
 export default store;

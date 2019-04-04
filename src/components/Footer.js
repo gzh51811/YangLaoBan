@@ -2,6 +2,8 @@ import React,{Component} from "react";
 import "../sass/Footer.scss";
 import {Icon} from "antd"
 import {connect} from "react-redux"
+
+
 class footer extends Component{
     constructor(){
         super();
@@ -17,7 +19,8 @@ class footer extends Component{
             },{
                 text:"购物车",
                 path:"/cart",
-                icon:"compass"
+                icon:"compass",
+              
             },{
                 text:"个人中心",
                 path:"/personcenter",
@@ -36,7 +39,7 @@ class footer extends Component{
         this.setState({
             curPage : text
         },()=>{
-            console.log(this.state)
+            // console.log(this.state)
         })
     }
     active(text){

@@ -5,6 +5,9 @@ import {Provider} from "react-redux"
 import store from "./store"
 import { Layout, List } from 'antd';
 import "antd/dist/antd.css"
+
+import Cart from './pages/Cart/Cart.js'
+
 const {
   Header, Footer, Sider, Content,
 } = Layout;
@@ -17,13 +20,13 @@ class App extends Component {
             <Layout>
                 <Header>Header</Header>
                 <Content>
-                    {/* <Switch>
-                        <Route path="/home" component={Home}/>
+                    <Switch>
+                        {/* <Route path="/home" component={Home}/>
                         <Route path="/list" component={List_YKB}/>
-                        <Route path="/goods/:id" component={Goods}/>
-                        <Route path="/mine" component={Mine}/>
-                        <Redirect to="/home" from="/" ></Redirect>
-                    </Switch> */}
+                        <Route path="/goods/:id" component={Goods}/> */}
+                         <Route path="/cart" component={Cart}/>
+                        {/* <Redirect to="/home" from="/" ></Redirect> */}
+                    </Switch>
                 </Content>
                 <Footer>
                     <Route component={FooterNav}/>
