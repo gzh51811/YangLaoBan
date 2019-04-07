@@ -1,8 +1,10 @@
 let initState = {
+    zhuangtai:false,
     goodslist:[
        {
             type:'香港仓发货',
             zhuangtai: false,
+            
             goodslist:[
                 {
                     ablum: 'product/21/2101/210115/052/C15AC4F4B5A97B93.jpg',
@@ -45,68 +47,62 @@ let initState = {
 // import {ADD_TO_CART,REMOVE_FROM_CART,CHANGE_QTY,CLEAR_CART} from "../actions/cartAction"
 let reducer = (state=initState,action)=>{
     switch(action.type){
+        
+        
         //全选框
         case 'CHANGE_G':
+        return {
+            ...state,
+            goodslist: state.goodslist.filter(goods => {
+                if (goods.type == action.payload.type) {
+                    // console.log(goods)
+                    goods.zhuangtai = true
+                    goods.goodslist.map(tf => {                 
+                        tf.status = true
+                        // console.log(tf.status                       
+                    })
+                }
+                    //原理： 修改完return出去给state，这样才算是一个新的state
+                    return goods
+                })
+            }
+            case 'CHANGE_K':
             return {
                 ...state,
                 goodslist: state.goodslist.filter(goods => {
                     if (goods.type == action.payload.type) {
-                        console.log(goods)
-                        goods.zhuangtai = true
-                        goods.goodslist.map(tf => {
-                            
-                                tf.status = true
-                                // console.log(tf.status)
-                            
-                        })
-
+                        // console.log(goods)
+                        goods.zhuangtai = false
+                        goods.goodslist.map(tf => {           
+                            tf.status = false                    
+                        }) 
                     }
                     //原理： 修改完return出去给state，这样才算是一个新的state
                     return goods
                 })
             }
-        case 'CHANGE_K':
+              
+            case 'CHANGE_O':
             return {
                 ...state,
                 goodslist: state.goodslist.filter(goods => {
                     if (goods.type == action.payload.type) {
                         console.log(goods)
                         goods.zhuangtai = false
+                        
+                    }
+                    //原理： 修改完return出去给state，这样才算是一个新的state
+                    return goods
+                })
+            }
+            
+            //修改子复选框
+            case 'CHANGE_F':
+            return {
+                ...state,
+                goodslist: state.goodslist.filter(goods => {
+                    if (goods.type == action.payload.type) {
                         goods.goodslist.map(tf => {
-
-                            tf.status = false
-                            // console.log(tf.status)
-
-                        })
-
-                    }
-                    //原理： 修改完return出去给state，这样才算是一个新的state
-                    return goods
-                })
-            }
-
-
-        case 'CHANGE_O':
-            return {
-                ...state,
-                goodslist: state.goodslist.filter(goods => {
-                    if (goods.type == action.payload.type) {
-                        console.log(goods)
-                        goods.zhuangtai = false
-
-                    }
-                    //原理： 修改完return出去给state，这样才算是一个新的state
-                    return goods
-                })
-            }
-
-        //修改子复选框
-        case 'CHANGE_F':
-            return {
-                ...state,
-                goodslist: state.goodslist.filter(goods => {
-                    if (goods.type == action.payload.type) {
-                       goods.goodslist.map(tf => {
                             if (tf.cataId == action.payload.id) {
                                 tf.status = !tf.status
                                 // console.log(tf.status)
@@ -117,9 +113,37 @@ let reducer = (state=initState,action)=>{
                     return goods
                 })
             }
+            //总选
+            case 'CHANGE_Z':
+            return {
+                ...state,
+                ...state.zhuangtai = !state.zhuangtai             
+            }
+        
+            case 'CHANGE_T' :
+            return {
+               ...state,
+               state:state.goodslist.map(item=>{
+                   item.zhuangtai = true
+                    // console.log(item)
+                    // item.map(good=>{
+                    //     good.status = true
+                    // })
+                //    return item
+               }) 
+            }
+            //全不选      
+            case 'CHANGE_C' :
+            return {
+                ...state,
+                state: state.goodslist.map(item => {
+                    item.zhuangtai = false
+                    
+                })
 
-
-        default:
+            }
+            
+            default:
             return {
                 ...state
             }
