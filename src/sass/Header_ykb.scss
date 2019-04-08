@@ -1,0 +1,35 @@
+#root .ant-layout-header{
+    padding:0;
+    background:#fff;
+    height:4.5rem;
+}
+.indexYKB{
+    margin:1rem;
+    top: 0;
+    z-index: 100;
+    position: relative;
+    width: 100%;
+    background: #fff;
+    display:flex;
+    input{
+        height:2.5rem;
+    }
+    .ant-input{
+        border-color: #E95211;
+        border-radius: 12px;
+        font-size:1.5rem;
+        padding-left:4rem;
+    }
+    .anticon.anticon-search{
+        color:#E95211;
+        position: relative;
+        left: 3rem;
+        z-index: 1;
+        top: .5rem;
+    }
+    img{
+        width:2rem;
+        height:2rem;
+        margin:.2rem 3rem 0 1rem;
+    }
+}

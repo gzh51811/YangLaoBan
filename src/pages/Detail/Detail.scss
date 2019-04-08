@@ -1,0 +1,443 @@
+.DetailBox{
+    width:100%;
+    background-color: #fff;
+    overflow: auto;
+
+    header{
+        width:100%;
+        height:4rem;
+        position: absolute;;
+        background-color:rgba(255,255,255,0);
+        z-index: 15;
+        text-align: center;
+        span{
+            display: none;
+            padding:1rem 1rem 0;
+        }
+        i{
+            position:absolute;
+            font-size: 2.7rem;
+            background-color:#f7f7f7;
+            border-radius :50%;
+            border: 1px solid #fff;
+            top:1rem;
+            &.anticon-left-circle{
+                left:1rem;
+            }
+            &.provide{
+                right:5rem;
+            }
+            &.anticon-more{
+                right:1rem;
+
+            }
+        }
+    }
+    .ant-carousel{
+        background-color:#fff;
+        height: 30rem;
+        .slick-slider{
+            height:100%;
+            .slick-list{
+                height:100%;
+                .slick-track{
+                height:100%;
+                    .slick-slide{
+            height:100%;
+
+                    }
+                }
+            }
+        }
+    }
+    .ant-carousel .slick-slide {
+        text-align: center;
+        height: 160px;
+        line-height: 160px;
+        background: #364d79;
+        overflow: hidden;
+      }
+      .ant-carousel .slick-slide img {
+        width:100%;
+        height: 30rem;
+    }
+      .ant-carousel .slick-slide h3 {
+        color: #fff;
+      }
+      .ant-pagination-simple{
+          font-size: 1rem;
+          position: relative;
+          margin-top: -2rem;
+          margin-left: 14rem;
+          .ant-pagination-simple-pager{
+              border:1px solid #ccc;
+              border-radius:12px;
+              background-color:#B2B2B2;
+              font-size: 1rem;
+              font-weight: 700;
+              color:#fff;
+              height: 1.8rem;
+              input{
+                  border:none;
+                  margin-right: -1.4rem;
+                  width: 3rem;
+                  border-radius: 12px;
+                  background-color:#B2B2B2;
+              }padding-right: 1rem;
+          }
+          .ant-pagination-slash{
+              margin:0;
+          }
+      }
+      .ant-pagination-prev,.ant-pagination-next{
+        display:none;
+      }
+      main{
+          padding: 0 1rem;
+        .priceWrapper{
+            margin:2rem 0 .5rem 0;
+            display:flex;
+            font-size: 1.4rem;
+            .referPrice{
+                width: 8rem;
+                text-align: center;
+            }
+            .prodPrice{
+                border:.1rem solid #000;
+                width:6rem;
+                height:3.8rem;
+                text-align: center;
+                .label{
+                    background: #000;
+                }
+                img{
+                    width: 4rem;
+                    height:1rem;
+                }
+            }
+        }
+        .mvp{
+            margin: .4rem 0 ;
+            display:flex;
+            font-size: 1.2rem;
+            justify-content: space-between;
+            padding:0 1rem;
+            span{
+                color:red;
+            }
+
+            .bor{
+                border:1px solid red;
+                border-radius:4px;
+                padding:0 .5rem;
+            }
+            
+        }#prodName{
+                margin:.5rem 0;
+                font-size:1.6rem;
+                color:#000;
+            }
+            .cor999{
+                font-size:1.4rem;
+                color:#999;
+            }
+      }
+      .bra{
+          font-size: 1.4rem;
+          color:#000;
+          padding:1rem;
+          img{
+              width:1.4rem;
+              height:1.4rem;
+          }
+      }
+      .Ychoose{
+          border-top:1rem solid #F8F8F8;
+          border-bottom:1rem solid #F8F8F8;
+          background: #fff;
+          padding:1rem;
+          font-size:1.2rem;
+          color:#000;
+          .Yval{
+              display: inline-block;
+              background: #F1F5F8;
+              padding:.5rem 1rem;
+              border-radius:4px;
+            margin-left:.5rem;
+          }
+          .anticon-right-circle{
+              margin-left:15rem;
+             font-size:1.8rem;
+
+          }
+      }
+      .Ypromi{
+          display:flex;
+          border-bottom:1rem solid #F8F8F8;
+          height:3rem;
+          font-size: 1.4rem;
+          background: #fff;
+          justify-content: space-between;
+          color:#000;
+          padding-left:1rem;
+        .index-line{
+            flex:1;
+        }
+        img{
+            height:85%;
+            display: inline-block;
+        }
+      }
+      #prodBrandTitle{
+        display:flex;
+        font-size:1.6rem ;
+        padding-top:1rem;
+          padding-left:1rem;
+          
+          background: #fff;
+          margin:0;
+          border-bottom:.2rem solid  #F8F8F8;
+        img{
+            width:4rem;
+            height:4rem;
+        }
+        .nation-bo2-content{
+            font-size:1.4rem;
+            padding-left:1rem;
+        }
+        .textIconWrapper{
+            line-height: 3.4rem;
+            margin-left:5rem;
+        }
+      }
+      .Yswiper{
+          background: #fff;
+          padding-bottom: 4rem;
+          .swiper-container{
+              height:100%;
+            .swiper-slide{
+                text-align: center;
+                font-size: .4rem;
+                img{
+                    width:100%;
+                    height: 60%
+                }
+                .prodPrice{
+                    font-weight: 700;
+                }
+                h1{    
+                    height:3rem;
+                    overflow: hidden;
+                    margin: 0 2%;
+                    margin-bottom: .128rem;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                }
+            } 
+          }
+      }
+      .Yrec{
+          background-color: #fff;
+          text-indent: 1rem;
+          margin: 0;
+          border-bottom:.05rem solid #ccc;
+      }
+      #descp{
+          margin-top: 1rem;
+          padding:1rem;
+          background-color:#fff;
+        .sku-border {
+            margin: 0 4%;
+            p {
+                line-height: 1.70666667rem;
+                border-bottom: 1px #ddd solid;
+                font-size: .59733333rem;
+
+                span {
+                    font-size: .59733333rem!important;
+                    color: #666;
+                    text-align: justify;
+                    margin-left: .21333333rem;
+                }
+            }
+        }
+        p{
+            margin:0;
+            img{
+                width: 100%;
+                height: 80%;
+            }
+        }
+      }
+      .nav-bot {
+        height: 4.13333333rem;
+        line-height: 2.13333333rem;
+        position: relative;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 10002;
+        width: 100%;
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        transform: translateZ(0);
+        background: #fff;
+        overflow: hidden;
+        font-size: 1.5rem;
+        .ant-badge.ant-badge-not-a-wrapper{
+            width: .05rem;
+            position: absolute;
+            top: 0;
+            left: 3rem;
+        }
+        li{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            &:first-child{
+                padding-top:.5rem;
+
+                width:5rem;
+            }
+            &:nth-child(2){
+                padding-top:.5rem;
+
+                width:4rem;
+                i{
+                    font-size: 2rem;
+                }
+                
+            }
+            &:nth-child(3){
+                padding-top:.5rem;
+                width:5rem;
+                i{
+                    font-size: 2rem;
+                }
+                
+            }
+            &:nth-child(4){
+                width:9.5rem;
+                padding-top:1rem;
+
+                height:4rem;
+                background-color:#333 ;
+                color:#fff;
+                i{
+                    font-size: 2rem;
+                }
+                
+            }
+            &:nth-child(5){
+                padding-top:1rem;
+                width:9.8rem;
+                height:4rem;
+                color:#fff;
+                background-color:#c11c1c ;
+                i{
+                    font-size: 2rem;
+                }
+                
+            }
+            i{
+                font-size: 2.05rem;
+            }
+        }
+        .fl{
+            float:left;
+        }
+    }
+        
+
+}
+.Ydrawer{
+    .ant-drawer-bottom.ant-drawer-open .ant-drawer-content-wrapper{
+        box-shadow: none;
+    }
+    .ant-drawer-content-wrapper{
+        height:24rem !important;
+    }
+    z-index: 10666;
+    .ant-drawer-title{
+        height:7rem;
+    }
+    .ant-drawer-header{
+        padding-top:0;
+        border-bottom:none;
+    }
+    .YdrawerImg{
+        top:-3rem;
+        position: absolute;
+        border:.05rem solid #ccc;
+        border-radius:12px;
+            width:10rem;
+            height:10rem;
+        }
+        .ant-drawer-body{
+            padding-top:1rem; font-size: 1.5rem;
+            #bossProdSkuPannel{
+            border-top:.05rem solid #ccc;
+                width:100% !important;
+            }
+            .fl{
+                float:left;
+                    
+            }
+            .fs12{
+                font-size: 1.4rem;
+                background-color: #F8F8F8;
+                width:6rem;
+                text-align: center;
+                border-radius: 4px;
+                margin-right:1rem;
+                &.active{
+                    background-color:#c11c1c;
+                    color:#fff;
+                }
+            }
+        }
+        .Ypri{
+           
+            margin-right:7rem;
+            float:right;
+            font-size:1.4rem;
+            .prodPrice{
+                img{
+                    display:inline-block;
+                    background-color:#000;
+                    height:1.3rem;
+                    width:4rem;
+                }
+            }
+        }
+
+        ol {
+            border-top:.05rem solid #ccc;
+            background: #fff;
+            padding: 0 1% 0 4%;
+            padding-top: .64rem;
+            padding-bottom: .64rem;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: flex;
+            .fs14{
+                float:left;
+                margin-right:1rem;
+            }
+            li{
+                float:left;
+                border:.05rem solid #ccc;
+                width: 3rem;
+                height:2rem;
+                text-align: center;
+                
+            }
+        }
+        .selected-scroll-cont .cont-box .btn-add-less .numLabel {
+            margin-right: 5%;
+            line-height: 1.28rem;
+        }
+}

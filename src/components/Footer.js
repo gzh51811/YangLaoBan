@@ -1,6 +1,7 @@
 import React,{Component} from "react";
 import "../sass/Footer.scss";
 import {Icon} from "antd"
+import {withRouter} from "react-router-dom"
 import {connect} from "react-redux"
 class footer extends Component{
     constructor(){
@@ -27,7 +28,16 @@ class footer extends Component{
         }
         this.jump=this.jump.bind(this)
     }
-
+    componentWillMount(){
+        let hash = this.props.history.location.pathname
+        this.state.navs.map(item=>{
+            if(item.path==hash){
+                this.setState({
+                    curPage:item.text
+                })
+            }
+        })
+    }
     jump({path,text}){
         console.log(path,text)
         this.props.history.push({
@@ -62,7 +72,7 @@ class footer extends Component{
     }
     
 }
-
+footer = withRouter(footer)
 export default connect((state)=>{
     return {
         len : state.cart.goodslist.length

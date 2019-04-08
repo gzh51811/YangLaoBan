@@ -1,0 +1,119 @@
+.Ylogin{
+    overflow: auto;
+    background-color: #1e1e1e;
+    width:100%;
+    header{
+        background-color:#333;
+        width:100%;
+        position: fixed;
+        color: #fff;
+        text-align: center;
+        height: 4.049rem;
+        line-height: 4.049rem;
+        z-index: 1;
+        i{
+            position: absolute;
+            left:1rem;
+            top:35%;
+        }
+        span{
+            font-size: 2rem;
+        }
+    }
+    main{
+        margin-top:4.049rem;
+        .Yinput{
+            margin:0 2rem;
+            position:relative;;
+            i{
+                color:#fff;
+            }
+            .Ymobile,.Ymsg{
+                height:5rem;
+                line-height: 5rem;
+                border-bottom:.05rem solid #eee;
+            }
+            .getCodeBtn{
+                color: #907854;
+                width:8rem;
+                height:2.4rem;
+                line-height:2.4rem;
+                position: absolute;
+                top: 6.5rem;
+                right: 0;
+                border-radius:6px;
+                font-size: 1.4rem;
+                text-align: center;
+                background-image: url("../../assets/image/yzm.png");
+            }
+            .Ymethod{
+                color: rgba(255,255,255,.6);
+                font-size: 1.4rem;
+                margin-top:1.2rem;
+                .voiceCodeWrapper{
+                    float:left;
+                }
+                .changeLoginBtn{
+                    float:right;
+
+                }
+            }
+            .youhui{
+                width:100%;
+            }
+            .agreement{
+                text-align: center;
+                color: #999;
+                font-size: 1.2rem;
+                margin-bottom:2rem;
+                vertical-align: middle;
+                .agreeCheck{
+                    display: inline-block;
+                    border-radius: 50%;
+                    border:.05rem solid #907854;
+                    width:2rem;
+                    height:2rem;
+                    background: url("../../assets/image/agree.png") center no-repeat;
+                    transform: scale(.5)
+                }
+                a{
+                    vertical-align: baseline;
+                    color: #999;
+                    text-decoration: underline;
+                }
+            }
+            
+        }
+        input{
+            border:none;
+            background-color: #1e1e1e;
+            color:#fff;
+            font-size: 1.6rem;
+            padding-left:1rem;
+            height:1.6rem;
+        }
+        .ant-btn-block{
+            margin-top:2rem;
+            background-image: url("../../assets/image/ylogin.png");
+            background-size:29.952rem 1.87733333rem;
+            color: #907854;
+            font-size: 1.4rem;
+        }
+    }
+    #_commonToast{
+        display:none;
+        width:11.5rem;
+        height:2rem;
+        position:absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        padding: .82666667rem 1.65333333rem;
+        line-height:.5rem ;
+        background-color:rgba(51,51,51,.84);
+        color:#fff;
+        margin:auto;
+        font-size: .512rem;
+    }
+}

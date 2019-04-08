@@ -14,15 +14,11 @@ ul{
     display:flex;
     flex-flow: column;
 }
-.ant-layout-header{
-    display:flex;
-    color:#fff;
-}
+
 .ant-layout-content{
     flex:1;
     display:flex;
     overflow-x: hidden;
-
 }
 #root .ant-layout-footer{
     // height:2.226667rem;

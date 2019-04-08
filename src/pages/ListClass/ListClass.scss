@@ -1,0 +1,144 @@
+.ListClassNav{
+    width: 100%;
+    background-color:#fff ;
+    .ant-tabs-nav{
+    width: 100%;
+    }
+    .ant-tabs-ink-bar{
+        width: 50%;
+        background-color:#E95211;
+    }
+    .ant-tabs-tab{
+        width: 50%;
+        margin:0;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    .ant-tabs{
+            height:100%;
+    }
+    
+    .Navlf{
+        background-color:#fff;
+        .ant-tabs-tabpane.ant-tabs-tabpane-active{
+        height: 44.25rem;
+        overflow: auto;
+    
+    }
+        .ant-tabs-tab{
+            padding:.4rem .5rem ;
+            span{
+            display:inline-block;
+
+            width:7.92533333rem;
+            padding:0 1rem;
+            text-align: center;
+            border-radius: 4px;
+            }
+        }
+        .ant-tabs .ant-tabs-left-content{
+            padding-left:1rem;
+        }
+        .ant-tabs-ink-bar{
+            width:1px;
+            background-color:rgb(224, 221, 221);
+        }
+        .ant-tabs-nav{
+        padding-top:2rem;
+
+        }
+        ul{
+            padding-top:2rem;
+            display:flex;
+            flex-wrap: wrap;
+            margin-bottom:0;
+            li{
+                display:flex;
+                height:10rem ;
+                width:33%;
+                a{
+                display:flex;
+                flex-flow: column;
+                    color:#333;
+                    width:100%;
+                    span{
+                    font-size:1rem;text-align: center;
+                    margin-left:-1rem;
+                }
+                
+                img{
+                    height:7rem;
+                    width:7rem;
+                }
+                }
+                
+                
+            }
+        }
+        .brandsGoods{
+            display:flex;
+            margin-left:-.5rem ;
+            flex-wrap: wrap;
+            // justify-content: space-around;
+            dl{
+                border:.1rem solid rgb(231, 231, 231);
+                height:6.5rem;
+                width:7rem;
+                margin:.5rem;
+                img{
+                    height:6rem;
+                    width:6.5rem;
+                }
+            }
+        }
+    }
+    .ant-tabs-bar{
+        margin-bottom: 0;
+    }
+    .ant-tabs-nav .ant-tabs-tab-active {
+        color: #E95211;
+        font-weight: 500;
+        span{
+            background-color:#F99;
+            color: #fff;
+        }
+    }
+
+    .Navlr{
+        height: 44.25rem;
+        overflow: auto;
+        li{
+            display:flex;
+            flex-direction: column;margin-top:1rem;
+            h3{
+                text-align: center;
+                font-size:1.52rem;
+            }
+            ol{
+                display:flex;
+                flex-wrap: wrap;
+                
+                dl{
+                    // flex:1;
+                    display:flex;
+                    flex-direction: column;
+                    text-align: center;
+                    margin-left:.8rem;
+                    // width:10rem;
+                    img{
+                        border:.1rem solid rgb(233, 232, 232);
+                        width:10rem;
+                        height:9.5rem;
+                    }
+                    span{
+                        display:inline-block;
+                        font-size:1.22rem;
+                        width:10rem;
+                        text-align: center;
+                        padding-top:.5rem;
+                    }
+                }
+            }
+        }
+    }
+}

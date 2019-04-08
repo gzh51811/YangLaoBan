@@ -1,0 +1,67 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, blockquote, th, td, p, span, button {
+    margin: 0;
+    padding: 0;
+    font-family: Gotham,"Helvetica Neue","Microsoft YaHei",Helvetica,Arial,sans-serif!important;
+}
+.classify {
+    background: #fff;
+}
+body, a {
+    color: #333;
+}
+body {
+    overflow: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+body {
+    font-style: normal;
+    font-weight: 400;
+    font-family: Gotham,"Helvetica Neue","Microsoft YaHei",Helvetica,Arial,sans-serif!important;
+    margin: 0;
+    position: relative;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, blockquote, th, td, p, span, button {
+    margin: 0;
+    padding: 0;
+    font-family: Gotham,"Helvetica Neue","Microsoft YaHei",Helvetica,Arial,sans-serif!important;
+}
+html, body {
+    height: 100%;
+    font-size: .512rem;
+}
+.clearfix {
+    zoom: 1;
+}
+#root{
+    overflow: hidden;
+}
+/*重置样式表*/
+/*==========样式重置===========*/
+body,h1,h2,h3,h4,p,a,input,img,ul,li,ol,dl,dt,dd{
+    padding:0;
+    margin:0;}
+ul,ol{
+    list-style:none;}
+img{
+    display:block;
+    border:0;}
+input{
+    /*去掉高亮*/
+    outline:none;}
+header,footer,section,main,nav{
+    display:block;}
+body{
+    font-size:0.32rem;
+    font-family:"微软雅黑";
+    color:#3e3e3e;}
+a{
+    text-decoration:none;
+    color:#0dc441;}
+a:hover{
+    text-decoration:underline;}
+i{font-style:normal;}
+*{box-sizing:border-box;}
