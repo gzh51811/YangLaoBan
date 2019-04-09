@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    -webkit-user-select: none;
+    -webkit-text-size-adjust: 100%;
+  }
+  body * {
+    -webkit-user-select: none;
+    /*在事件章节 去兼容安卓*/
+    font-family: Helvetica;
+  }
+  a,
+  input,
+  button {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  h1 {
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+  /* ios下面圆角 */
+  input,
+  button {
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  img {
+    vertical-align: top;
+  }
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  select, input { vertical-align:middle;}
+  fieldset, img,input,button { border:0 none; padding:0;margin:0;outline-style:none; } 

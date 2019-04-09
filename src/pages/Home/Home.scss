@@ -1,0 +1,559 @@
+.ant-carousel{
+    width:16rem;
+   height: 10.5rem;
+}
+.ant-carousel .slick-slide {
+    text-align: center;
+    width:16rem;
+    height:10.5rem;
+    line-height: 10.5rem;
+    // background: #c6cad1;
+    overflow: hidden;
+    
+  }
+ 
+  .ant-carousel .slick-slide h3 {
+    color: #fff;
+  }
+  .ant-carousel .slick-slide h3 .urlimg{
+    display: block;
+    width: 100%;
+  }
+
+  // icon列表
+  .bannerbotdiv{
+    height:3.75rem;
+    width:16rem;
+    li{
+      width:25%;
+      float:left;
+      img{
+        display: block;
+        width:100%;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  //秒杀
+  //头部
+  .seckillContentWrapper{
+    width:16rem;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    .s-top{
+      padding: 1rem 0rem;
+      height: .7rem;
+      .skillAdvertiseTitle{
+        float: left;
+        height: .7rem;
+        line-height: .8rem;
+        margin-right: .34rem;
+        margin-left: .64rem;
+        color: #333;
+        font-size: .64rem;
+        font-weight: 700;
+      }
+      .t1,.t2{
+        float: left;
+        color: #666;
+        font-size: .512rem;
+        margin-right: .17rem;
+      }
+      .more{
+        position: absolute;
+        right: .4rem;
+        height: .683rem;
+        padding-right: .6rem;
+        color: #999;
+        font-size: .51rem;
+        line-height: .7rem;
+        background:url(../../assets/image/miaosha01.png) no-repeat right center;
+        background-size: .34rem .64rem; 
+      }
+    }
+    //产品
+    .seckillProduct{
+      background-color: #FFFFFF;
+      width:16rem;
+      height: 8rem;
+      padding: .256rem 0rem .256rem .256rem;
+      overflow: hidden;
+      .wapper{
+        width:16rem;
+        // transform: translate3d(0px, 0px, 0px);
+        height: 7.2rem;
+        .chanpin{
+          float: left;
+          width: 4rem;
+          height: 8rem;
+          // margin-right: .2rem;
+          background: #fff;
+          img{
+            display: block;
+            width: 3rem;
+            height: 3rem;
+            margin: auto;
+            margin-top: .7rem;
+            margin-bottom: .4rem;
+          }
+          .product-title{
+            color: #333;
+            display: block;
+            line-height: .6rem;
+            width:3.5rem;
+            height:1.2rem;
+            font-size: .5rem;
+            margin: 0rem .384rem;
+            overflow:hidden;
+            text-overflow:ellipsis; 
+            // white-space:nowrap;  
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+          }
+          .product-price{
+            width: 4.3rem;
+            font-size: .6rem;
+            line-height: .6rem;
+            font-weight: 600;
+            color: #c11c1c;
+            text-align: center;
+            padding-top: .5rem;
+            margin-bottom: 0;
+          }
+          .product-del{
+            font-size: .51rem;
+            text-align: center;
+            color: #999;
+            text-decoration: line-through;
+            margin-top: .2rem;
+          }
+        }
+      }
+    }
+  }
+
+// 资讯达人轮播
+.banner2 .ant-carousel{
+  width:16rem;
+  height: 2.4rem;
+}
+.banner2 .ant-carousel .slick-slide{
+  width:16rem;
+  height: 2.4rem;
+}
+
+.super-info{
+  height: 2.4rem;
+  border-bottom: 0 solid #f8f8f8;
+  background: #fff;
+  .super-icon{
+    width: 1.5rem;
+    height: 1.5rem;
+    background: url(../../assets/image/zixun01.png) no-repeat center;
+    background-size: 1.5rem 1.5rem;
+    margin-top: .43rem;
+    margin-left: .5rem;
+    float: left;
+  }
+  .superBanner{
+    float: left;
+    width: 13.44rem;
+    height: 2.4rem;
+    position: relative;
+    margin-left: .5rem;
+    margin-top:-2.6rem;
+    overflow: hidden;
+    .txt{
+      float: left;
+      line-height: .85rem;
+      width: 9.2rem;
+      margin-top: .34rem;
+      font-size: .7rem;
+      color:#333;
+      span{
+        display: block;
+        height: .85rem;
+        width: 7.6rem;
+        overflow: hidden;
+      }
+    }
+    .imgshow{
+      float: right;
+      width: 3.6rem;
+      height: 2.4rem;
+      margin-left: .55rem;
+      position: relative;
+      overflow: hidden;
+      .img-bg{
+        position: absolute;
+        width: 3.6rem;
+        height: 2.4rem;
+        background: url(../../assets/image/zuxun02.png) no-repeat;
+        background-size: cover;
+        z-index: 1;
+      }
+      img{
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  
+}
+
+//vip
+.vipimg{
+  img{
+    display: block;
+    width:16rem;
+    height: 3.7rem; 
+  }
+}
+.vipProd{
+    padding: 0rem .2rem 0rem 0rem;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    .vipChilder{
+    position: relative;
+    float: left;
+    width: 4.3rem;
+    height: 7rem;
+    margin: .2rem 0rem .2rem .2rem;
+    background: #fff;
+    border-radius: .17rem;
+    .free-taken{
+      position: absolute;
+      top: 3.5rem;
+      left: .38rem;
+      height: .6rem;
+      font-size: .43rem;
+      line-height: .6rem;
+      padding: 0rem .128rem;
+      color: #ECCB8D;
+      background: #000;
+      z-index: 1;
+    }
+    img{
+      width: 3.6rem;
+      height: 3.6rem;
+      margin: .34rem;
+      border-radius: .17rem;
+    }
+    h2{
+      color: #333;
+      font-size: .51rem;
+      line-height: .72rem;
+      height: 1.408rem;
+      margin: 0rem .34rem .256rem;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      text-align: center;
+    }
+    .price{
+      color: #000;
+      font-size: .512rem;
+      line-height: .55rem;
+      height: 1.1rem;
+      text-align: center;
+      font-weight: 600;
+    }
+  }
+}
+
+//product
+.subline{
+  height: .25rem;
+  background-color: #feacb0;
+}
+.special-box{
+  background: #ff46b3;
+  width:16rem;
+  height: 22.15rem;
+  .product01Img{
+    width:100%;
+    height: auto;
+    display: block;
+  }
+  .special-prod{
+    padding: 0rem .12rem .12rem;
+    width: 16rem;
+    .product-ul{
+      width:16rem;
+      height:16.5rem;
+      overflow: hidden;
+      position: relative;
+      // display: flex;
+      li{
+        float: left;
+        width: 5.12rem;
+        height: 8.1rem;
+        margin: .12rem .13rem 0rem 0rem;
+        background: #fff;
+        .everyImg{
+          img{
+            display: block;
+            width: 3.6rem;
+            height: 3.6rem;
+            margin: .512rem .768rem;
+          }
+        }
+        .product-title{
+          color: #333;
+          width: 3.6rem;
+          height: 1.2rem;
+          font-size: .512rem;
+          line-height: .64rem;
+          margin: auto;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+        .product-vipprice{
+          color: rgb(173, 158, 158);
+          height: .7rem;
+          padding-top: .256rem;
+          font-size: .512rem;
+          line-height: .68rem;
+          text-align: center;
+          font-weight:700;
+          span{
+            display: inline-block;
+            padding-left: .8rem;
+            background:url(../../assets/image/VIP@2x.png) no-repeat left center;
+            background-size: .7rem;
+          }
+        }
+        .product-price{
+          color: #666;
+          height: .512rem;
+          font-size: .512rem;
+          line-height: .512rem;
+          text-align: center;
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+}
+//navlist
+.navProdList{
+  width: 16rem;
+  background: #f8f8f8;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  .navHead{
+    position: relative;
+    height: 2.1rem;
+    line-height: 2.1rem;
+    .navUl{
+      display: flex;
+      overflow: hidden;
+      li{
+        position: relative;
+        height: 2.1rem;
+        line-height: 2.1rem;
+        float: left;
+        img{
+          display: block;
+          width: 3.2rem;
+          height: 2.1rem;
+          overflow: hidden;
+          margin-right: auto;
+          margin-left: auto;
+          margin-top: 0rem;
+        }
+      }
+    }
+  }
+  //content样式
+  .navContent{
+    height: 73.6rem;
+    .navContentUl{
+      width: 16rem;
+      height: 73.6rem;
+      opacity: 1;
+      background-color: rgb(215, 61, 61);
+      min-height: 1.28rem;
+      .prodItem{
+        position: relative;
+        width: 7.68rem;
+        overflow: hidden;
+        vertical-align: top;
+        background-color: #fff;
+        border-radius: .17rem;
+        margin: .21rem 0rem 0rem .21rem;
+        float:left;
+        .prodImage{
+          width: 7.68rem;
+          height: 7.68rem;
+          position: relative;
+          margin-bottom: .3rem;
+          -webkit-border-radius: .17rem;
+          border-radius: .17rem;
+          img{
+            display: block;
+            width:100%;
+          }
+        }
+        .promName{
+          height: .512rem;
+          line-height: .512rem;
+          font-size: .512rem;
+          color: #333;
+          overflow: hidden;
+          font-weight: 600;
+          padding: 0rem .34rem;
+          margin-bottom: .34rem;
+        }
+        .prodName{
+          height: 1.4rem;
+          line-height: .7rem;
+          font-size: .512rem;
+          color: #333;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          padding: 0rem .34rem;
+          margin-bottom: .34rem;
+        }
+        .priceWrapper{
+          width: 7.2rem;
+          margin-bottom: .42rem;
+          padding: .17rem .08rem;
+          margin: 0 auto;
+          text-align: center;
+          background: #F8F8F8;
+          display: flex;
+          .referPrice{
+            width: 50%;
+            display: inline-block;
+            vertical-align: middle;
+            font-size: .512rem;
+            color: #999;
+            .label{
+              color: #666;
+              font-size: .43rem;
+              height: .68rem;
+              line-height: .68rem;
+              margin-bottom: .1rem;
+            }
+            .value{
+              color: #333;
+              text-decoration: line-through;
+              font-weight: 700;
+              height: .94rem;
+              line-height: .94rem;
+              margin-bottom: 0;
+            }
+          }
+          .prodPriceWrap{
+            width: 2.6rem;
+              display: inline-block;
+            vertical-align: middle;
+            font-size: .6rem;
+            font-weight: 700;
+            color: #C11C1C;
+            border: 1px solid #000;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            float: right;
+            margin-left: 0.6rem;
+            .label{
+              color: #666;
+              background: #000;
+              width: 100%;
+              height: .68266667rem;
+              position: relative;
+              overflow: hidden;
+              margin-bottom: .1rem;
+              &::before{
+                content: '';
+                width: 1.75rem;
+                height: .42rem;
+                display: inline-block;
+                vertical-align: middle;
+                background:#000 url(../../assets/image/huiyuan01.png) no-repeat center;
+                background-size: 1.7rem .43rem;
+                position: absolute;
+                top: 30%;
+                left: 20%;
+                z-index: 1;
+              }
+            }
+            .value{
+              color: #333;
+              font-size: .512rem;
+              height: .85rem;
+              line-height: .94rem;
+              margin-bottom: 0;
+            }
+          }
+          
+        }
+        .saleTotalWrapper{
+          color: #666;
+          position: relative;
+          height: 1.024rem;
+          font-size: .47rem;
+          padding: 0rem .34rem;
+          margin-bottom: .43rem;
+          margin-top: .437rem;
+          .upgradeBtn{
+            display: inline-block;
+            vertical-align: middle;
+            width: auto;
+            border-radius: 1px;
+            padding: 0rem .17rem;
+            height: .68rem;
+            line-height: .68rem;
+            text-align: center;
+            color: #C11C1C;
+            border: 1px solid #C11C1C;
+            font-size: .43rem;
+            box-sizing: border-box;
+            margin-right: .34rem;
+          }
+          .saleTotal{
+            margin-left: .34rem;
+            color: #333;
+          }
+          .cartBtn{
+            float: right;
+            width: 1rem;
+            height: 1rem;
+            background:url(../../assets/image/car01.png) no-repeat center;
+            background-size: .7rem .7rem;
+            position: absolute;
+            right:0;
+            top:0.2rem;
+            text-indent: -4266.624rem;
+            font-size: .512rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+.example {
+  text-align: center;
+  background: rgba(0,0,0,0.05);
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 30px 50px;
+  margin: 20px 0;
+}
