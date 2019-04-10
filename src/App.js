@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 import FooterNav from "./components/Footer"
 import {HashRouter,Route,Switch,Redirect} from "react-router-dom";
 import {connect} from "react-redux";
-import { Layout } from 'antd';
 import "./sass/base.scss"
 import "antd/dist/antd.css";
 import ListClass from "./pages/ListClass"
-import List from "./pages/List"
+import YList from "./pages/List"
 import Detail from "./pages/Detail"
 import Login from "./pages/Login"
 import PersonCenter from "./pages/PersonCenter"
 import Headerykb from "./components/Header_ykb"
+import { Layout, List } from 'antd';
+import Cart from './pages/Cart/Cart.js'
+
 const {
   Header, Footer, Sider, Content,
 } = Layout;
@@ -29,9 +31,10 @@ class App extends Component {
                 <Content>
                     <Switch>
                       <Route path="/listclass" component={ListClass}/>
-                      <Route path="/list" component={List} exact/>
+                      <Route path="/list" component={YList} exact/>
                       <Route path="/detail" component={Detail}/>
                       <Route path="/login" component={Login}/>
+                       <Route path="/cart" component={Cart}/>
                       <Route path="/personcenter" component={PersonCenter}/>
                       {/* <Redirect to="/home" from="/" ></Redirect>  */}
                         {/* <Route path="/home" component={Home}/>

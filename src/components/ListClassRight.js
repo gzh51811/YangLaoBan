@@ -3,8 +3,8 @@ import "../sass/Header_ykb.scss";
 import { Tabs, Select, Divider } from 'antd';
 import { connect } from "react-redux";
 import withAxios from "../hoc/withAxios"
-const TabPane = Tabs.TabPane;
-const Option = Select.Option;
+// const TabPane = Tabs.TabPane;
+// const Option = Select.Option;
 
 // @withAxios
 class ListClassRight extends Component {
@@ -19,7 +19,7 @@ class ListClassRight extends Component {
     //     this.setState({ tabPosition });
     // }
     async componentWillMount(){
-        let {data:{respBody:{brandList}}} = await this.props.axios.get("http://localhost:2000/ylbapi/app/base/v2/chosenBrand?_=1554004334758");
+        let {data:{respBody:{brandList}}} = await this.props.axios.get("/app/base/v2/chosenBrand?_=1554004334758");
         console.log(brandList)
         this.setState({
             brands:brandList,

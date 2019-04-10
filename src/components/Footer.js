@@ -3,6 +3,9 @@ import "../sass/Footer.scss";
 import {Icon} from "antd"
 import {withRouter} from "react-router-dom"
 import {connect} from "react-redux"
+import withAxios from "../hoc/withAxios"
+
+
 class footer extends Component{
     constructor(){
         super();
@@ -18,7 +21,8 @@ class footer extends Component{
             },{
                 text:"购物车",
                 path:"/cart",
-                icon:"compass"
+                icon:"compass",
+              
             },{
                 text:"个人中心",
                 path:"/personcenter",
@@ -27,8 +31,10 @@ class footer extends Component{
             curPage:"全球购"
         }
         this.jump=this.jump.bind(this)
+        this.formatCart=this.formatCart.bind(this)
     }
     componentWillMount(){
+        this.formatCart()
         let hash = this.props.history.location.pathname
         this.state.navs.map(item=>{
             if(item.path==hash){
@@ -38,6 +44,16 @@ class footer extends Component{
             }
         })
     }
+
+    //初始化购物车
+    formatCart(){
+        this.props.axios.get("http://127.0.0.1:1811/orderForm/find").then(res=>{
+            console.log(res.data)
+            this.props.dispatch({type:"FORMAT_CART",payload:res.data})
+        })
+    }
+
+
     jump({path,text}){
         console.log(path,text)
         this.props.history.push({
@@ -46,7 +62,7 @@ class footer extends Component{
         this.setState({
             curPage : text
         },()=>{
-            console.log(this.state)
+            // console.log(this.state)
         })
     }
     active(text){
@@ -72,9 +88,10 @@ class footer extends Component{
     }
     
 }
+footer = withAxios(footer)
 footer = withRouter(footer)
 export default connect((state)=>{
     return {
-        len : state.cart.goodslist.length
+        ...state
     }
 })(footer);

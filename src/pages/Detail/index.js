@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Icon, Drawer, Button, Carousel, Pagination,Badge } from 'antd';
+import { Icon, Drawer, Button, Carousel, Pagination, Badge } from 'antd';
 import "./Detail.scss"
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import commonAction from "../../actions/commonAction";
+import cartAction from "../../actions/cartAction";
 import withAxios from "../../hoc/withAxios"
 import { withRouter } from "react-router-dom"
 import url from "url"
@@ -20,19 +21,22 @@ class List extends Component {
             prodId: "",
             curPage: 1,
             prodImg: [],
+            shareTitle: "",
             ProdBrandPic: "",
             ProdBrandNameCN: "",
             allRelateBrandProds: [],
             allSeeProds: [],
             visible: false,
-            active:"",
-            num:1
+            active: "",
+            num: 1,
+            goodNum: 0
         }
         this.onChange = this.onChange.bind(this)
         this.changeOpacity = this.changeOpacity.bind(this)
 
     }
     componentWillMount() {
+        this.getCartNum()
         this.format()
 
     }
@@ -47,6 +51,19 @@ class List extends Component {
         _this.removeEventListener("scroll", this.changeOpacity.bind(this, _this))
     }
 
+    //获取购物车数量
+    getCartNum() {
+        let num = 0;
+        this.props.cart.goodslist.map(item => {
+            item.goodslist.map(item => {
+                num++
+            })
+        })
+        this.setState({
+            goodNum: num
+        })
+    }
+
     //初始化数据
     format() {
         let { query: { prodId } } = url.parse(this.props.history.location.search, true)
@@ -57,9 +74,10 @@ class List extends Component {
             }
 
         }).then(res => {
-            let { data: { respBody: { shareImg } } } = res;
+            let { data: { respBody: { shareImg, shareTitle } } } = res;
             this.setState({
-                prodImg: [shareImg]
+                prodImg: [shareImg],
+                shareTitle
             })
         })
         this.props.axios.get("/app/prod/v2/activity/brandInfo", {
@@ -70,21 +88,18 @@ class List extends Component {
 
         }).then(res => {
             let { data: { respBody } } = res;
-            console.log(respBody)
             this.setState({
                 ProdBrandPic: respBody.ProdBrandPic,
                 ProdBrandNameCN: respBody.ProdBrandNameCN,
                 allRelateBrandProds: respBody.allRelateBrandProds,
                 allSeeProds: respBody.allSeeProds
-            }, () => {
-                console.log(this.state.allRelateBrandProds)
             })
         })
         this.setState({
             prodId
         }, async () => {
-            this.props.footshow(false);
-            this.props.headshow(false);
+            this.props.a.footshow(false);
+            this.props.a.headshow(false);
         })
     }
 
@@ -122,24 +137,130 @@ class List extends Component {
         });
     };
     //选择规格
-    chooseType(value){
+    chooseType(value) {
         this.setState({
-            active:value
-        },()=>{
-            this.refs.confirmBtn.buttonNode.style.backgroundColor="#c11c1c"
-            this.refs.confirmBtn.buttonNode.style.color="#fff"
-            this.refs.jian.onclick=()=>{
-                if(this.state.num>1){
+            active: value
+        }, () => {
+            this.refs.confirmBtn.buttonNode.style.backgroundColor = "#c11c1c"
+            this.refs.confirmBtn.buttonNode.style.color = "#fff"
+            this.refs.jian.onclick = () => {
+                if (this.state.num > 1) {
                     this.setState({
-                        num:--this.state.num
+                        num: --this.state.num
                     })
                 }
-                
+
             }
-            this.refs.jia.onclick=()=>{
+            this.refs.jia.onclick = () => {
                 this.setState({
-                    num:++this.state.num
+                    num: ++this.state.num
                 })
+            }
+
+            this.refs.confirmBtn.buttonNode.onclick = () => {
+                let { ProdBrandNameCN, prodImg, prodId, shareTitle } = this.state;
+                //console.log(this.props.cart.goodslist)
+                if (this.props.cart.goodslist.length) {
+                    for (var i = 0; i < this.props.cart.goodslist.length; i++) {
+                        if (this.props.cart.goodslist[i].type == ProdBrandNameCN) {
+                            console.log("存在品牌")
+                            for (var j = 0; j < this.props.cart.goodslist[i].goodslist.length; j++) {
+                                if (this.props.cart.goodslist[i].goodslist[j].cataId == prodId) {
+                                    this.props.b.handleChangeQty(this.state.num, prodId)
+                                    this.getCartNum()
+                                    return;
+                                }
+                                if (j == this.props.cart.goodslist[i].goodslist.length - 1) {
+                                    this.props.b.addsingle({
+                                        type: ProdBrandNameCN,
+                                        good: {
+                                        type: ProdBrandNameCN,
+
+                                            ablum: prodImg[0],
+                                            cataId: prodId,
+                                            prodName: shareTitle,
+                                            price: 149,
+                                            sum: this.state.num,
+                                            status: false
+                                        }
+                                    })
+                                    this.getCartNum()
+                                    return;
+                                }
+                            }
+                            this.getCartNum()
+                            return;
+                        }
+                        if (i == this.props.cart.goodslist.length - 1) {
+                            console.log("不存在品牌")
+                            this.props.b.add(
+                                {
+                                    type: ProdBrandNameCN,
+                                    name: 'GZ',
+                                    zhuangtai: false,
+                                    goodslist: [
+                                        {
+                                        type: ProdBrandNameCN,
+
+                                            ablum: prodImg[0],
+                                            cataId: prodId,
+                                            prodName: shareTitle,
+                                            price: 149,
+                                            sum: this.state.num,
+                                            status: false
+                                        }
+                                    ]
+                                })
+                                this.props.axios.get("http://127.0.0.1:1811/orderForm/add",{
+                                    params:{data:{type: ProdBrandNameCN,
+                                        name: 'GZ',
+                                        zhuangtai: false,
+                                        goodslist: [
+                                            {
+                                                type: ProdBrandNameCN,
+            
+                                                ablum: prodImg[0],
+                                                cataId: prodId,
+                                                prodName: shareTitle,
+                                                price: 149,
+                                                sum: this.state.num,
+                                                status: false
+                                            }
+                                        ]}
+                                        
+                                    }
+                                }).then(res=>{
+                                    console.log(res)
+                                })
+                            this.getCartNum()
+                            return;
+                        }
+
+                    }
+                }else{
+                    this.props.b.add(
+                        {
+                            type: ProdBrandNameCN,
+                            name: 'GZ',
+                            zhuangtai: false,
+                            goodslist: [
+                                {
+                                    type: ProdBrandNameCN,
+
+                                    ablum: prodImg[0],
+                                    cataId: prodId,
+                                    prodName: shareTitle,
+                                    price: 149,
+                                    sum: this.state.num,
+                                    status: false
+                                }
+                            ]
+                        })
+                    
+                    this.getCartNum()
+                    return;
+                }
+
             }
         })
     }
@@ -179,7 +300,7 @@ class List extends Component {
                     <div className="bor"><span>成为会员</span>
                     </div>
                 </div>
-                <div className="head cor3e" id="prodName">（1瓶装）阳光之宝 北极海豹油软胶囊 100粒/瓶 强健心脑 养肝益肾</div>
+                <div className="head cor3e" id="prodName">（1瓶装）{this.state.shareTitle}</div>
                 <div className="head-bo fs14 cor999" id="brief">“加拿大小熊啤酒开瓶器钥匙扣” ！多买多送，送完即止！ 开启世界杯啤酒畅饮人生！它是您的血液垃圾的“清洁工”，让血管更通畅，心脑一起深呼吸，能量满满每一天，健康活力+1~</div>
             </main>
             <div className="bra"><img className="" src={require("../../assets/image/au.png")} />澳大利亚&nbsp;|&nbsp;{this.state.ProdBrandNameCN}</div>
@@ -222,8 +343,10 @@ class List extends Component {
             <div id="nav-bot" className="nav-bot iphoneX-fixed-b clearfix saleon border-t-1px">
                 <ul className="clearfix">
                     <li className="fl shopCartWrapper border-r-1px" id="shopCartWrapper">
-                        <Icon type="shopping-cart" /> <Badge count={1} />
-                        <div>购物车</div>
+                        <Icon type="shopping-cart" /> <Badge count={this.state.goodNum} />
+                        <div onClick={() => {
+                            this.props.history.push("/cart")
+                        }}>购物车</div>
                     </li>
                     <li className="fl serviceWrapper border-r-1px" id="serviceWrapper">
                         <Icon type="qq" />
@@ -237,44 +360,44 @@ class List extends Component {
                     <li className="fl instBuyWrapper" id="instBuyBtn" onClick={this.showDrawer}>立即购买</li>
                 </ul>
             </div>
-                <Drawer className="Ydrawer"
-                    title={<div>
-                        <img style={{display:this.state.visible?"block":"none"}} className="YdrawerImg" src={this.state.prodImg[0]}/>
-                        <div className="Ypri">
-                            <div className="referPrice">
-                                <span>零售价</span>&nbsp;&nbsp;
+            <Drawer className="Ydrawer"
+                title={<div>
+                    <img style={{ display: this.state.visible ? "block" : "none" }} className="YdrawerImg" src={this.state.prodImg[0]} />
+                    <div className="Ypri">
+                        <div className="referPrice">
+                            <span>零售价</span>&nbsp;&nbsp;
                                 <strong><del className="value">￥129.00</del></strong>
-                            </div>
-                            <div className="prodPrice">
-                                <img src={require("../../assets/image/mvp.png")} />
-                                <strong className="value">￥87.00</strong>
-                            </div>
-                            <div className="prodPrice">
-                                <strong className="value">请选择:规格1...</strong>
-                            </div>
+                        </div>
+                        <div className="prodPrice">
+                            <img src={require("../../assets/image/mvp.png")} />
+                            <strong className="value">￥87.00</strong>
+                        </div>
+                        <div className="prodPrice">
+                            <strong className="value">请选择:规格1...</strong>
                         </div>
                     </div>
-                    }
-                    placement="bottom"
-                    closable={false}
-                    onClose={this.onClose}
-                    visible={this.state.visible}
-                >
-                    <div style={{width:"92%"}} id="bossProdSkuPannel" className="sel-check cor3e prod-ri3">
+                </div>
+                }
+                placement="bottom"
+                closable={false}
+                onClose={this.onClose}
+                visible={this.state.visible}
+            >
+                <div style={{ width: "92%" }} id="bossProdSkuPannel" className="sel-check cor3e prod-ri3">
                     <ul className="clearfix " name="规格1">
                         <div className="fs14">规格1</div>
-                            <li className={this.state.active=="4867"?"fl fs12 active":"fl fs12"} valid="4867" name="0" onClick={()=>{console.log(666);this.chooseType("4867")}} >200粒</li>
-                            <li className={this.state.active=="4868"?"fl fs12 active":"fl fs12"} valid="4868" name="0" onClick={()=>{this.chooseType("4868")}} >400粒</li>
+                        <li className={this.state.active == "4867" ? "fl fs12 active" : "fl fs12"} valid="4867" name="0" onClick={() => { this.chooseType("4867") }} >200粒</li>
+                        <li className={this.state.active == "4868" ? "fl fs12 active" : "fl fs12"} valid="4868" name="0" onClick={() => { this.chooseType("4868") }} >400粒</li>
                     </ul>
-            </div>
-                    <ol className="btn-add-less clearfix">
-                        <div className="fs14 numLabel">数量</div>
-                        <li className="btn-rem1 border-1px" id="btnCartLess" ref="jian">-</li>
-                        <li className="btn-rem2 border-1px" id="txtCartNum" >{this.state.num}</li>
-                        <li className="btn-rem3 border-1px" id="btnCartMore" ref="jia">+</li>
-                    </ol>
-                    <Button ref="confirmBtn" type="danger" block>确定</Button>
-                </Drawer>
+                </div>
+                <ol className="btn-add-less clearfix">
+                    <div className="fs14 numLabel">数量</div>
+                    <li className="btn-rem1 border-1px" id="btnCartLess" ref="jian">-</li>
+                    <li className="btn-rem2 border-1px" id="txtCartNum" >{this.state.num}</li>
+                    <li className="btn-rem3 border-1px" id="btnCartMore" ref="jia">+</li>
+                </ol>
+                <Button ref="confirmBtn" type="danger" block>确定</Button>
+            </Drawer>
         </div>
     }
 }
@@ -285,6 +408,11 @@ List = connect(
     state => {
         return { ...state }
     },//将state绑定到props上
-    dispatch => bindActionCreators(commonAction, dispatch)//将action函数绑定到props上
+    dispatch => {
+        return {
+            a: bindActionCreators(commonAction, dispatch),
+            b: bindActionCreators(cartAction, dispatch)
+        }
+    }//将action函数绑定到props上
 )(List)
 export default List;

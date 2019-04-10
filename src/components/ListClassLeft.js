@@ -21,8 +21,8 @@ class ListClassLeft extends Component {
     //     this.setState({ tabPosition });
     // }
     async componentWillMount(){
-        let {data:{respBody:{navList}}} = await this.props.axios.get("http://localhost:2000/ylbapi/app/base/bossNavInfos?_=1553947039403");
-        let {data:{respBody:{brandList}}} = await this.props.axios.get("http://localhost:2000/ylbapi/app/home/v2/searchSelectedBrand?navId=11&_=1554000170169");
+        let {data:{respBody:{navList}}} = await this.props.axios.get("/app/base/bossNavInfos?_=1553947039403");
+        let {data:{respBody:{brandList}}} = await this.props.axios.get("/app/home/v2/searchSelectedBrand?navId=11&_=1554000170169");
         // console.log(brandList)
         this.setState({
             brands:navList,
@@ -30,7 +30,7 @@ class ListClassLeft extends Component {
         });
     }
     async changeTab(id){
-        let {data:{respBody:{brandList}}} = await this.props.axios.get("http://localhost:2000/ylbapi/app/home/v2/searchSelectedBrand?",{
+        let {data:{respBody:{brandList}}} = await this.props.axios.get("/app/home/v2/searchSelectedBrand?",{
             params:{
                 navId:id,
                 _ :Date.now()

@@ -7,7 +7,6 @@ class SwiperCom extends Component {
     constructor() {
         super();
         this.state = {
-
         }
 
     }
@@ -23,16 +22,15 @@ class SwiperCom extends Component {
         return (
             <div className="Yswiper">
             <div className="swiper-container">
-            <div className="swiper-wrapper">
-              
-                {this.props.allRelate.map((item,idx)=>{
-                    return <div className="swiper-slide" key={idx}>
-                        <img src={"https://oss.yanglaoban.com/"+item.pic}/>
-                        <h1>{item.prodName}</h1>
-                        <div className="priceWrap">                        <div className="prodPriceWrap"><Icon type="heart" theme="twoTone" twoToneColor="#eb2f96" /><span className="prodPrice">¥{item.minPrice}</span></div>                        <div className="referPriceWrap"><span className="t">零售价</span><span className="referPrice">¥{item.maxReferPrice}</span></div>                    </div>
-                    </div>
-                })}
-            </div>
+                <div className="swiper-wrapper">
+                    {this.props.allRelate.map((item,idx)=>{
+                        return <div className="swiper-slide" key={idx}>
+                            <img src={"https://oss.yanglaoban.com/"+item.pic}/>
+                            <h1>{item.prodName}</h1>
+                            <div className="priceWrap">                        <div className="prodPriceWrap"><Icon type="heart" theme="twoTone" twoToneColor="#eb2f96" /><span className="prodPrice">¥{item.minPrice}</span></div>                        <div className="referPriceWrap"><span className="t">零售价</span><span className="referPrice">¥{item.maxReferPrice}</span></div>                    </div>
+                        </div>
+                    })}
+                </div>
           </div>
           </div>
         )

@@ -92,11 +92,11 @@ class List extends Component {
     //初始化数据
     format() {
         this.refs.Yloading.style.display = "block";
-        this.props.axios.interceptors.request.use(config => {
-            return config;
-        }, error => {  //请求错误处理
-            Promise.reject(error)
-        });
+        // this.props.axios.interceptors.request.use(config => {
+        //     return config;
+        // }, error => {  //请求错误处理
+        //     Promise.reject(error)
+        // });
         let { query: { cataId } } = url.parse(this.props.history.location.search, true)
         this.setState({
             cataId
