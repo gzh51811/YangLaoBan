@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FooterNav from "./components/Footer"
-import {HashRouter,Route,Switch,Redirect} from "react-router-dom";
+import {HashRouter,BrowserRouter,Route,Switch,Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 import "./sass/base.scss"
 import "antd/dist/antd.css";
@@ -22,7 +22,7 @@ const {
 class App extends Component {
   render() {
     return (
-        <HashRouter>
+        <BrowserRouter>
             <Layout>
 
             {
@@ -40,7 +40,7 @@ class App extends Component {
                       <Route path="/login" component={Login}/>
                        <Route path="/cart" component={Cart}/>
                       <Route path="/personcenter" component={PersonCenter}/>
-                      {/* <Redirect to="/home" from="/" ></Redirect>  */}
+                      <Redirect to="/home" from="/" ></Redirect> 
                         {/* <Route path="/home" component={Home}/>
                         
                         <Route path="/goods/:id" component={Goods}/>
@@ -58,7 +58,7 @@ class App extends Component {
                 
             </Layout>
             
-        </HashRouter>
+        </BrowserRouter>
     );
   }
 }

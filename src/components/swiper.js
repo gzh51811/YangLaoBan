@@ -11,14 +11,19 @@ class SwiperCom extends Component {
 
     }
     componentDidMount() {
-        new Swiper('.swiper-container', {
-            slidesPerView : 4,
-            centeredSlides : false,
-            observer: true, //修改swiper自己或子元素时，自动初始化swiper
-            observeParents: true //修改swiper的父元素时，自动初始化swiper
-        })
+
+        
     }
     render(){
+        if(this.props.allRelate.length>0){
+            new Swiper('.swiper-container', {
+                slidesPerView : 4,
+                centeredSlides : false,
+                observer: true, //修改swiper自己或子元素时，自动初始化swiper
+                observeParents: true, //修改swiper的父元素时，自动初始化swiper
+                
+            })
+        }
         return (
             <div className="Yswiper">
             <div className="swiper-container">
@@ -31,7 +36,8 @@ class SwiperCom extends Component {
                         </div>
                     })}
                 </div>
-          </div>
+            </div>
+            
           </div>
         )
     }
