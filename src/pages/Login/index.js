@@ -18,9 +18,11 @@ class Login extends Component {
         this.props.a.footshow(false);
         this.props.a.headshow(false);
     }
+
     jump(){
         if(this.refs.account.value==this.props.login.mobile&&this.refs.loginCode.value==this.props.login.password){
             this.props.history.goBack()
+            document.cookie ='name='+this.refs.account.value
         }
     }
     render() {
@@ -28,9 +30,9 @@ class Login extends Component {
             <div className="Ylogin">
                 <header>
                     <Icon type="left" onClick={()=>{
-                        // this.props.history.push({
-                        //     // pathname:"/home"
-                        // })
+                        this.props.history.push({
+                            pathname:"/home"
+                        })
                     }}/>
                     <span>登录注册</span>
                 </header>

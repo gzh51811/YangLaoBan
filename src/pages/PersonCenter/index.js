@@ -4,14 +4,30 @@ import { connect } from "react-redux"
 import { bindActionCreators } from "redux";
 import commonAction from "../../actions/commonAction";
 import "./PersonCenter.scss"
+let aa = 0
 class PersonCenter extends Component {
     componentWillMount() {
         this.format();
     }
     //初始化
     format() {
+        
+        
+        var strcookie = document.cookie;//获取cookie字符串
+        var arrcookie = strcookie.split("; ");//分割
+        //遍历匹配
+        // console.log('aaaa' + arrcookie)
+        for (var i = 0; i < arrcookie.length; i++) {
+            var arr = arrcookie[i].split("=");
+            if (arr[0] == 'name') {
+                aa = arr[1]  
+            }
+        }
+       var cookie = document.cookie
+       
+
         let { mobile } = this.props.login;
-        if (!mobile) {
+        if (mobile != aa) {
             this.props.history.push({
                 pathname: "/login"
             })
@@ -29,7 +45,7 @@ class PersonCenter extends Component {
                 <div className="user-base-info">
                     <div className="person-info-1">
                         <img className="person-logo" src="https://m.yanglaoban.com/images/user-index-default-icon.png" id="m-user-headimg-id" />
-                        <span id="person-name" className="person-name">134****7216</span>
+                        <span id="person-name" className="person-name">{aa}</span>
                         <a className="person-level" id="personLevel" >
                             <span className="img" id="m-level-tab"><img src="https://m.yanglaoban.com/images/lv-default.png" /></span>
                             <span className="name" id="m-level-name">普通会员</span>

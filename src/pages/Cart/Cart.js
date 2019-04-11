@@ -14,6 +14,36 @@ class Cart extends Component {
             lengths:0
         }
     }
+
+
+    componentWillMount() {
+        this.format();
+    }
+    //初始化
+    format() {
+
+        let aa = 0
+        var strcookie = document.cookie;//获取cookie字符串
+        var arrcookie = strcookie.split("; ");//分割
+        //遍历匹配
+        // console.log('aaaa' + arrcookie)
+        for (var i = 0; i < arrcookie.length; i++) {
+            var arr = arrcookie[i].split("=");
+            if (arr[0] == 'name') {
+                aa = arr[1]
+            }
+        }
+        var cookie = document.cookie
+        console.log(cookie)
+
+        let { mobile } = this.props.login;
+        if (mobile != aa) {
+            this.props.history.push({
+                pathname: "/login"
+            })
+        }
+        
+    }
     
     //进入购物车页隐藏公共样式 初始化生命函数
     componentDidMount(){
@@ -21,6 +51,8 @@ class Cart extends Component {
         this.props.dispatch({type:"FOOTSHOW",status:false})
         this.changeLengths()
     }
+
+
 
     changeLengths(){
         let num = 0;
@@ -44,33 +76,14 @@ class Cart extends Component {
         //返回时销毁节点  点击路由跳转时执行
          function fanhui(){
              this.props.history.goBack()
+             this.props.dispatch({ type: "HEADSHOW", status: true })
+             this.props.dispatch({ type: "FOOTSHOW", status: true })
          }
 
 
         //解构goodslist
         let { cart: { goodslist } } = this.props;
        
-        // //香港仓
-        //  goodslist.map(item=>{
-        //      if (item.type == '香港仓发货'){
-        //          a1 = item.goodslist.length;
-        //      }
-        //  })
-        //  //国内中转仓发货
-        // goodslist.map(item => {
-        //     if (item.type == '国内中转仓发货') {
-        //         a2 = item.goodslist.length;
-        //     }
-        // })
-        // //国内仓发货
-        // goodslist.map(item => {
-        //     if (item.type == '国内仓发货') {
-        //         a3 = item.goodslist.length;
-        //     }
-        // })
-        // //购物车长度
-        // let lengths = a1 + a2 + a3
-
        
     
         var onchange = (item) => {

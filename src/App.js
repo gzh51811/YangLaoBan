@@ -12,6 +12,8 @@ import PersonCenter from "./pages/PersonCenter"
 import Headerykb from "./components/Header_ykb"
 import { Layout, List } from 'antd';
 import Cart from './pages/Cart/Cart.js'
+import Home from './pages/Home/Home'
+
 
 const {
   Header, Footer, Sider, Content,
@@ -22,6 +24,7 @@ class App extends Component {
     return (
         <HashRouter>
             <Layout>
+
             {
                   this.props.common.head_ykb?<Header>
                   <Headerykb></Headerykb>
@@ -30,6 +33,7 @@ class App extends Component {
                 
                 <Content>
                     <Switch>
+                      <Route path="/home" component={Home} />
                       <Route path="/listclass" component={ListClass}/>
                       <Route path="/list" component={YList} exact/>
                       <Route path="/detail" component={Detail}/>
@@ -43,6 +47,8 @@ class App extends Component {
                         <Route path="/mine" component={Mine}/>
                         */}
                     </Switch>
+
+                {/* <Header>Header</Header> */}
                 </Content>
                 {
                   this.props.common.foot_ykb?<Footer>
